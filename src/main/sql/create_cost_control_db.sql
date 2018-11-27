@@ -92,7 +92,8 @@ CREATE TABLE Costs (
 --
 DROP TABLE IF EXISTS Imports;
 CREATE TABLE Imports (
-    sessionId INTEGER,
+    sessionId DOUBLE PRECISION,
     ts TIMESTAMP,
+    filename VARCHAR(255),
     message VARCHAR(2000)
 );
