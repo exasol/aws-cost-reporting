@@ -1,0 +1,51 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.exasol</groupId>
+	<artifactId>aws-cost-reporting</artifactId>
+	<version>1.0</version>
+	<packaging>jar</packaging>
+
+	<scm>
+		<connection>scm:git:https://github.com/exasol/aws-cost-reporting</connection>
+		<developerConnection>scm:git:https://github.com/exasol/aws-cost-reporting</developerConnection>
+	</scm>
+
+	<name>aws-cost-reporting</name>
+	<url>https://github.com/exasol/aws-cost-reporting</url>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<repositories>
+		<repository>
+			<id>central</id>
+			<name>maven.exasol.com-releases</name>
+			<url>https://maven.exasol.com/artifactory/exasol-releases</url>
+		</repository>
+	</repositories>
+
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.exasol</groupId>
+			<artifactId>exasol-jdbc</artifactId>
+			<version>6.1.0</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk -->
+		<dependency>
+			<groupId>com.amazonaws</groupId>
+			<artifactId>aws-java-sdk</artifactId>
+			<version>1.11.456</version>
+		</dependency>
+	</dependencies>
+
+</project>
