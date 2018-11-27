@@ -4,6 +4,7 @@ CREATE SCHEMA AwsCostControl; -- Change name if your IT created one for you 'e.g
 --
 -- A typical example of such a timestamp is: 2018-11-22T11:52:39Z
 --
+--/
 CREATE OR REPLACE LUA SCALAR SCRIPT ISO_TS_TO_DATE(iso VARCHAR(20)) RETURNS VARCHAR(10) AS
 function run(context)
     if context.iso == null then
@@ -18,6 +19,7 @@ end
 -- metadata AWS provides for some of the resources. This in some cases allows mapping resources to owners who did not
 -- tag the properly.
 --
+--/
 CREATE OR REPLACE LUA SCALAR SCRIPT OWNER_FALLBACK(owner VARCHAR(200), createdBy VARCHAR(2000)) RETURNS VARCHAR(200) AS
 function run(context)
     if context.owner ~= null then
