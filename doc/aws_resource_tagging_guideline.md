@@ -35,8 +35,7 @@ Most, but not all AWS resources support tagging, obviously you only need to tag 
 | exa:project      | y | Project short tag.  Identical to JIRA short tag of the project. | Pattern: `[A-Z0-9]+`|  XYZPOC |
 | exa:project.name | n | Human readable project name. | Free text. Up to 256 UTF characters. | XYZ Proof-of-Concept |
 | exa:department   | y | The department that owns the resource. | One of: "RnD", "PM", "PreSales", "ITS", "Support" | PreSales | RnD |
-| exa:stage        | n | The stage the resources in a stack belong to. | One of:
-"development" tests during development (often one stack per developer), "integration test", "system test", "demo" (e.g. for pre-sales demonstrators), "pre-live" or "live" | live |
+| exa:stage        | n | The stage the resources in a stack belong to. | One of: "development" tests during development (often one stack per developer), "integration test", "system test", "demo" (e.g. for pre-sales demonstrators), "pre-live" or "live" | live |
 | exa:customer     | n | The customer we do the project / PoC / demo / product extension for. | Official company name of the customer. Please try to look up the official name including the correct case. | "Acme Corp." |
 | exa:issue        | n | In case the JIRA project does not distinguish the purpose of the resource well enough, you can relate the resource to a JIRA issue additionally. | JIRA ticket ID | `FOOBAR-12345` |
 
