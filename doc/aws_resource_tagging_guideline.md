@@ -27,18 +27,18 @@ The following list contains that tags that we require for each AWS resource you 
 
 Most, but not all AWS resources support tagging, obviously you only need to tag those that AWS supports.
 
-| Tag              | Mandatory | Content Format | Examples |
-|------------------|-----------|----------------|----------|
-| Name             | y | Name of the resource displayed in overview lists. | This key is reserved by AWS and must be written exactly like this (i.e. with an upper case "N" in front). `<project short tag (uppercase)>-<resource name (lower kebab-case)>`  DRPOC-application-node |
-| exa:owner        | y | Name of the person (no distribution list) responsible for this resource. | Company email address. All letters lower case: `jane.doe@example.com` |
-| exa:deputy       | n | Name of a deputy for the responsible (distribution list possible). "Deputy" means the stand-in for the owner in case the owner is not reachable (e.g. in case of vacation or sick leave). | Company email address. All letters lower case: `john.smith@example.com` |
-| exa:project      | y | Project short tag.  Identical to JIRA short tag of the project. | Pattern: [A-Z0-9]+  XYZPOC |
+| Tag              | Mandatory | Content | Format | Examples |
+|------------------|-----------|---------|--------|----------|
+| Name             | y | Name of the resource displayed in overview lists. | This key is reserved by AWS and must be written exactly like this (i.e. with an upper case "N" in front). | `<project short tag (uppercase)>-<resource name (lower kebab-case)>`  DRPOC-application-node |
+| exa:owner        | y | Name of the person (no distribution list) responsible for this resource. | Company email address. All letters lower case. | `jane.doe@example.com` |
+| exa:deputy       | n | Name of a deputy for the responsible (distribution list possible). "Deputy" means the stand-in for the owner in case the owner is not reachable (e.g. in case of vacation or sick leave). | Company email address. All letters lower case. | `john.smith@example.com` |
+| exa:project      | y | Project short tag.  Identical to JIRA short tag of the project. | Pattern: `[A-Z0-9]+`|  XYZPOC |
 | exa:project.name | n | Human readable project name. | Free text. Up to 256 UTF characters. | XYZ Proof-of-Concept |
-| exa:department   | y | The department that owns the resource   one of: "RnD", "PM", "PreSales", "ITS", "Support" | PreSales |
+| exa:department   | y | The department that owns the resource. | One of: "RnD", "PM", "PreSales", "ITS", "Support" | PreSales | RnD |
 | exa:stage        | n | The stage the resources in a stack belong to. | One of:
-"development" tests during development (often one stack per developer), "integration test", "system test", "demo" (e.g. for pre-sales demonstrators), "pre-live" or "live" |
-| exa:customer     | n | The customer we do the project / PoC / demo / product extension for. | Official company name of the customer. Please try to look up the official name including the correct case: "Acme Corp." |
-| exa:issue        | n | In case the JIRA project does not distinguish the purpose of the resource well enough, you can relate the resource to a JIRA issue additionally. | JIRA ticket ID: `FOOBAR-12345` |
+"development" tests during development (often one stack per developer), "integration test", "system test", "demo" (e.g. for pre-sales demonstrators), "pre-live" or "live" | live |
+| exa:customer     | n | The customer we do the project / PoC / demo / product extension for. | Official company name of the customer. Please try to look up the official name including the correct case. | "Acme Corp." |
+| exa:issue        | n | In case the JIRA project does not distinguish the purpose of the resource well enough, you can relate the resource to a JIRA issue additionally. | JIRA ticket ID | `FOOBAR-12345` |
 
 Note that both keys and values are case sensitive, so please adhere to the formats specified above strictly.
 
