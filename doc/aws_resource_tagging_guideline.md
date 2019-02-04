@@ -27,8 +27,8 @@ The following list contains that tags that we require for each AWS resource you 
 
 Most, but not all AWS resources support tagging, obviously you only need to tag those that AWS supports.
 
-| Tag | Mandatory | Content Format | Examples
----------------------------------------------
+| Tag              | Mandatory | Content Format | Examples |
+|------------------|-----------|----------------|----------|
 | Name             | y | Name of the resource displayed in overview lists. | This key is reserved by AWS and must be written exactly like this (i.e. with an upper case "N" in front). `<project short tag (uppercase)>-<resource name (lower kebab-case)>`  DRPOC-application-node |
 | exa:owner        | y | Name of the person (no distribution list) responsible for this resource. | Company email address. All letters lower case: `jane.doe@example.com` |
 | exa:deputy       | n | Name of a deputy for the responsible (distribution list possible). "Deputy" means the stand-in for the owner in case the owner is not reachable (e.g. in case of vacation or sick leave). |
