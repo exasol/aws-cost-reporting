@@ -37,27 +37,30 @@ end
 --
 DROP TABLE IF EXISTS Costs_Staging;
 CREATE TABLE Costs_Staging (
-    id VARCHAR(100),                  -- A/1:    lineItem/LineItemId
-    period VARCHAR(41),               -- B/2:    identity/TimeInterval
-    invoice VARCHAR(200),             -- C/3:    bill/InvoiceId
-    payerAccount DECIMAL(18,0),       -- F/6:    bill/PayerAccountId
-    billingStart VARCHAR(20),         -- G/7:    bill/BillingPeriodStartDate
-    billingEnd VARCHAR(20),           -- H/8:    bill/BillingPeriodEndDate
-    usageAccount DECIMAL(18,0),       -- I/9:    lineItem/UsageAccountId
-    costType VARCHAR(20),             -- J/10:   lineItem/LineItemType ("e.g. 'Tax' or 'Usage')
-    usageStart VARCHAR(20),           -- K/11:   lineItem/UsageStartDate
-    usageEnd VARCHAR(20),             -- L/12:   lineItem/UsageEndDate
-    awsProduct VARCHAR(200),          -- M/13:   lineItem/ProductCode
-    operation VARCHAR(200),           -- O/15:   lineItem/Operation
-    az VARCHAR(20),                   -- P/16:   lineItem/AvailabilityZone    
-    resource VARCHAR(2000),           -- Q/17:   lineItem/ResourceId
-    currency VARCHAR(20),             -- U/21:   lineItem/CurrencyCode
-    blendedRate DECIMAL(18,10),       -- X/24:   lineItem/BlendedRate
-    blendedCost DECIMAL(18,10),       -- Y/25:   lineItem/BlendedCost
-    createdBy VARCHAR(2000),          -- DY/:129 resourceTags/aws:createdBy
-    department VARCHAR(200),          -- DZ/:130 resourceTags/exa:department
-    owner VARCHAR(200),               -- EA/:131 resourceTags/exa:owner
-    project VARCHAR(200)              -- EB/:132 resourceTags/exa:project
+    id VARCHAR(100),                          -- A/1:    lineItem/LineItemId
+    period VARCHAR(41),                       -- B/2:    identity/TimeInterval
+    invoice VARCHAR(200),                     -- C/3:    bill/InvoiceId
+    payerAccount DECIMAL(18,0),               -- F/6:    bill/PayerAccountId
+    billingStart VARCHAR(20),                 -- G/7:    bill/BillingPeriodStartDate
+    billingEnd VARCHAR(20),                   -- H/8:    bill/BillingPeriodEndDate
+    usageAccount DECIMAL(18,0),               -- I/9:    lineItem/UsageAccountId
+    costType VARCHAR(20),                     -- J/10:   lineItem/LineItemType ("e.g. 'Tax' or 'Usage')
+    usageStart VARCHAR(20),                   -- K/11:   lineItem/UsageStartDate
+    usageEnd VARCHAR(20),                     -- L/12:   lineItem/UsageEndDate
+    awsProduct VARCHAR(200),                  -- M/13:   lineItem/ProductCode
+    operation VARCHAR(200),                   -- O/15:   lineItem/Operation
+    az VARCHAR(20),                           -- P/16:   lineItem/AvailabilityZone    
+    resource VARCHAR(2000),                   -- Q/17:   lineItem/ResourceId
+    currency VARCHAR(20),                     -- U/21:   lineItem/CurrencyCode
+    unblendedRate DECIMAL(18,10)              -- V/22:   lineItem/UnblendedRate
+    unblendedCost DECIMAL(18,10)              -- W/23:   lineItem/UnblendedCost
+    blendedRate DECIMAL(18,10),               -- X/24:   lineItem/BlendedRate
+    blendedCost DECIMAL(18,10),               -- Y/25:   lineItem/BlendedCost
+    effectiveReservationCosts DECIMAL(18,10), -- DJ/114: reservations/EffectiveCosts
+    createdBy VARCHAR(2000),                  -- DY/129: resourceTags/aws:createdBy
+    department VARCHAR(200),                  -- DZ/130: resourceTags/exa:department
+    owner VARCHAR(200),                       -- EA/131: resourceTags/exa:owner
+    project VARCHAR(200)                      -- EB/132: resourceTags/exa:project
 );
 
 -- This table contains the cost data after format conversions that are done in the step from staging to production data.
@@ -81,6 +84,7 @@ CREATE TABLE Costs (
     currency VARCHAR(20),             -- U/21:   lineItem/CurrencyCode
     blendedRate DECIMAL(18,10),       -- X/24:   lineItem/BlendedRate
     blendedCost DECIMAL(18,10),       -- Y/25:   lineItem/BlendedCost
+    instanceType VARCHAR(40),         -- BE/57:  product/InstanceType
     createdBy VARCHAR(2000),          -- DY/:129 resourceTags/aws:createdBy
     department VARCHAR(200),          -- DZ/:130 resourceTags/exa:department
     owner VARCHAR(200),               -- EA/:131 resourceTags/exa:owner

@@ -1,7 +1,7 @@
 open schema PUB1901;
 
 -- Costs by project
-SELECT billingStart, billingEnd, ROUND(SUM(blendedCost), 2), currency, project
+SELECT count(1) AS cost_report_items, billingStart, billingEnd, ROUND(SUM(blendedCost), 2), currency, project
 FROM Costs
 GROUP BY billingStart, billingEnd, project, currency
 ORDER BY SUM(blendedCost) DESC;
@@ -30,3 +30,5 @@ FROM Costs
 WHERE department IS NULL OR project IS NULL OR OWNER IS NULL
 GROUP BY OWNER_FALLBACK(owner, createdBy), awsProduct, resource
 ORDER BY OWNER_FALLBACK(owner, createdBy), awsProduct, resource;
+
+SELECT 
