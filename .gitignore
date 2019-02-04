@@ -1,0 +1,5 @@
+**/*.log
+**/*.bak
+**/~*
+**/*.out
+.dbeaver-data-sources.xml
