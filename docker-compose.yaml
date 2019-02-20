@@ -1,0 +1,13 @@
+---
+version: '3.2'
+
+services:
+  master:
+    build:
+      context: .
+    image: marcpopp/aws-cost-reporting:latest
+    volumes:
+    - ./volumes/app/:/app
+    - ./volumes/home:/root
+
+
